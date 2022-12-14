@@ -2,6 +2,7 @@
 
 var express = require('express');
 var app = express();
+var route=require("./routes/route")
 var path = require('path');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient
@@ -22,6 +23,11 @@ MongoClient.connect('mongodb+srv://ManjushaRaut:D1NNvookajCHUeKG@cluster0.3qd4bi
 
 app.use(bodyParser.json())
 
+app.use('/', route)
+
+app.use('/*', function (req, res) {
+    return res.status(400).send({ status: false, msg: 'You Are In Wrong Path' })
+})
 
 
 app.post('/authors',  function(req, res) {
