@@ -9,7 +9,7 @@ var MongoClient = require('mongodb').MongoClient
 var db;
 
 //Establish Connection
-MongoClient.connect('mongodb+srv://ManjushaRaut:D1NNvookajCHUeKG@cluster0.3qd4bit.mongodb.net/CSV?retryWrites=true&w=majority', function (err, database) {
+MongoClient.connect('mongodb://localhost:27017', function (err, database) {
    if (err) 
    	throw err
    else
